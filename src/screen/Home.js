@@ -12,11 +12,13 @@ const Home = () => {
         <Text style={styles.HeyDev}>{text.HeyDev}</Text>
         <Text style={styles.subtitle}>{text.KeepUpTheGoodWork}</Text>
         <Text style={styles.whoIs}>{text.QuienEs}</Text>
-
-        <TouchableOpacity style={styles.selectImage}>  
-          <Image source={Icon} style={styles.Icon}/> 
-          <Text style={styles.textIcon}>{text.PresionaParaElegir}</Text>
-        </TouchableOpacity>
+        <View style={styles.selectImageContainer}>
+          <TouchableOpacity style={styles.selectImage}>  
+            <Image source={Icon} style={styles.Icon}/> 
+            <Text style={styles.textIcon}>{text.PresionaParaElegir}</Text>
+          </TouchableOpacity>
+        </View>
+        
       </View> 
     </View>
   );
