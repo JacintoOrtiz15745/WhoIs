@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
         color: colors.grey900,
         marginTop: 32,
     },
-    selectImageContainer: { 
+    selectImageContainer: {                 
         marginTop: 10,
         borderColor: colors.primary,
         borderWidth: 2,

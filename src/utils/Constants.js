@@ -16,6 +16,7 @@ export const colors = {
     white: '#FFFFFF',
     black: '#0F172A',
     background: '#F1F5F9',
+    opacity: 'rgba(15, 23, 42, 0.5)',
 }
 
 export const heading = {
@@ -38,7 +39,7 @@ export const body = {
 export const weight = {
     bold: 'bold',
     semibold: 'semibold',
-    medium: 'medium',
+    medium: '500',
     regular: 'regular',
 }
 
@@ -62,4 +63,5 @@ export const text = {
     Mujer: 'Mujer',
     Popularidad: 'Popularidad',
     Peliculas: 'Peliculas',
+    DarkContent: 'dark-content',
 }
