@@ -13,23 +13,26 @@ export const colors = {
     grey700: '#475569',
     grey800: '#1E293B',
     grey900: '#0F172A',
+    white: '#FFFFFF',
+    black: '#0F172A',
+    background: '#F1F5F9',
 }
 
 export const heading = {
-    heading1: '48',
-    heading2: '40',
-    heading3: '32', 
-    heading4: '24',
-    heading5: '20',
-    heading6: '18',
+    h1: 48,
+    h2: 40,
+    h3: 32, 
+    h4: 24,
+    h5: 20,
+    h6: 18,
 }
 
 export const body = {
-    xl: '18',
-    large: '16',
-    medium: '14',
-    small: '12',
-    xsmall: '10',
+    xl: 18,
+    large: 16,
+    medium: 14,
+    small: 12,
+    xsmall: 10,
 }
 
 export const weight = {
@@ -37,4 +40,26 @@ export const weight = {
     semibold: 'semibold',
     medium: 'medium',
     regular: 'regular',
+}
+
+export const text = {
+    HeyDev: 'Hey, Dev 👋',
+    KeepUpTheGoodWork: 'Keep up the good work!',
+    QuienEs: '¿Quién es el famoso?',
+    PresionaParaElegir: 'Presiona para elegir una foto',
+    SeleccionaUnaFoto: 'Selecciona una foto',
+    GaleriaDeFotos: 'Galeria de fotos',
+    Camara: 'Cámara',
+    Subiendo: 'Subiendo...',
+    EsUnFamoso: '¿Es un famoso?',
+    Listo: 'Listo',
+    HuboUnError: 'Hubo un error',
+    Buscando: 'Buscando...',
+    NoSeEncontro: 'No se encontró',
+    Error: 'Error de red o de servidor',
+    Cerrar: 'Cerrar',
+    Hombre: 'Hombre',
+    Mujer: 'Mujer',
+    Popularidad: 'Popularidad',
+    Peliculas: 'Peliculas',
 }
