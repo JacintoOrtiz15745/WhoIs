@@ -1,24 +1,24 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Image} from 'react-native';
-import {text} from '../utils/Constants';
-import { styles } from '../styles/HomeStyles';
+import {View, Text, StatusBar, TouchableOpacity, Image} from 'react-native';
+import {colors, text} from '../utils/Constants';
+import {styles} from '../styles/HomeStyles'; 
+import MyModal from '../components/MyModal';
 
-const Icon = require('../assets/images/icon.png')
+const Icon = require('../assets/images/icon.png');
 
 const Home = () => {
   return (
     <View style={styles.mainContainer}>
-      <View style={styles.container}> 
+      <StatusBar backgroundColor={colors.white} barStyle={text.DarkContent} /> 
+
+      <View style={styles.container}>
         <Text style={styles.HeyDev}>{text.HeyDev}</Text>
         <Text style={styles.subtitle}>{text.KeepUpTheGoodWork}</Text>
         <Text style={styles.whoIs}>{text.QuienEs}</Text>
         <View style={styles.selectImageContainer}>
-          <TouchableOpacity style={styles.selectImage}>  
-            <Image source={Icon} style={styles.Icon}/> 
-            <Text style={styles.textIcon}>{text.PresionaParaElegir}</Text>
-          </TouchableOpacity>
+        <MyModal/>
+         
         </View>
-        
       </View> 
     </View>
   );
