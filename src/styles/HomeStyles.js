@@ -27,14 +27,16 @@ export const styles = StyleSheet.create({
         color: colors.grey900,
         marginTop: 32,
     },
-    selectImage: {
-        width: '100%',
-        height: 137,
-        backgroundColor: colors.background,
+    selectImageContainer: { 
         marginTop: 10,
         borderColor: colors.primary,
         borderWidth: 2,
         borderStyle: 'dashed',
+    },
+    selectImage: {
+        width: '100%',
+        height: 137,
+        backgroundColor: colors.background,
         alignItems: 'center', 
         justifyContent: 'center',
     }, 
