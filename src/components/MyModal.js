@@ -3,6 +3,7 @@ import { Text, View, Image, TouchableOpacity, StatusBar } from 'react-native';
 import Modal from 'react-native-modal';
 import { styles } from '../styles/MyModalStyles';
 import { colors, text } from '../utils/Constants';
+import Button from './Button';
 import ButtonLoader from './ButtonLoader';
 import ModalLabel from './ModalLabel';
 
@@ -45,7 +46,6 @@ function MyModal() {
             <Image source={Camera} style={styles.selectPhotoandCameraIcon} />
             <Text style={styles.textIcons}>{text.Camara}</Text>
           </TouchableOpacity>
-
         </View>
       </Modal>
     </View>

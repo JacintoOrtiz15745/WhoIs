@@ -15,7 +15,7 @@ const ButtonLoader = props => {
     alignSelf: 'center',
     paddingHorizontal: 16,
     paddingVertical: 7,
-    marginBottom: 39,
+    marginBottom: 20,
     backgroundColor:
       btnType === 'primary'
       ? colors.primary
