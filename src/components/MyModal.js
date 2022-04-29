@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
-import {Text, View, Image, TouchableOpacity, StatusBar} from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, Image, TouchableOpacity, StatusBar } from 'react-native';
 import Modal from 'react-native-modal';
-import {styles} from '../styles/MyModalStyles';
-import {colors, text} from '../utils/Constants';
-import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
+import { styles } from '../styles/MyModalStyles';
+import { colors, text } from '../utils/Constants';
+import ButtonLoader from './ButtonLoader';
+import ModalLabel from './ModalLabel';
 
 function MyModal() {
   const Icon = require('../assets/images/icon.png');
@@ -24,17 +25,16 @@ function MyModal() {
 
       <Modal
         isVisible={isModalVisible}
-        onBackdropPress={() => setModalVisible(false)} 
+        onBackdropPress={() => setModalVisible(false)}
         swipeDirection={'down'}
         onSwipeComplete={() => {
           setModalVisible(false);
         }}
         style={styles.modal}>
-        <View style={styles.mainContainer}> 
-
+        <View style={styles.mainContainer}>
           <View style={styles.closeModal}></View>
 
-          <Text style={styles.selectImageText}>{text.SeleccionaUnaFoto}</Text>
+          <ModalLabel tittle={text.SeleccionaUnaFoto} />
 
           <TouchableOpacity style={styles.iconsContainer}>
             <Image source={Photo} style={styles.selectPhotoandCameraIcon} />
@@ -45,6 +45,7 @@ function MyModal() {
             <Image source={Camera} style={styles.selectPhotoandCameraIcon} />
             <Text style={styles.textIcons}>{text.Camara}</Text>
           </TouchableOpacity>
+
         </View>
       </Modal>
     </View>

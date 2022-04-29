@@ -26,11 +26,10 @@ export const styles = StyleSheet.create({
         right: 0,
         padding: 0,
         margin: 0,
-        marginHorizontal: 0, 
-        
+        marginHorizontal: 0,  
     },
     mainContainer: {    
-        height: 218, 
+        minHeight: 218, 
         backgroundColor: colors.white,
         borderTopLeftRadius: 32,
         borderTopRightRadius: 32,
@@ -42,15 +41,7 @@ export const styles = StyleSheet.create({
         borderRadius: 50,
         alignSelf: 'center', 
         marginTop: 12,
-    },
-    selectImageText: {
-        fontSize: body.large,
-        fontWeight: weight.bold,
-        color: colors.grey500,
-        marginTop: 37,
-        marginBottom: 33,
-        alignSelf: 'center', 
-    },
+    }, 
     iconsContainer: {
         flexDirection: 'row',
         marginHorizontal: 27, 
