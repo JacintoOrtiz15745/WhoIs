@@ -5,12 +5,11 @@ import { styles } from '../styles/MyModalStyles';
 import { colors, text } from '../utils/Constants';
 import Button from './Button';
 import ButtonLoader from './ButtonLoader';
-import ModalLabel from './ModalLabel';
+import ImagePicker from './ImagePicker'; 
 
 function MyModal() {
   const Icon = require('../assets/images/icon.png');
-  const Photo = require('../assets/images/photo.png');
-  const Camera = require('../assets/images/camera.png');
+
   const [isModalVisible, setModalVisible] = useState(false);
 
   const toggleModal = () => {
@@ -33,19 +32,8 @@ function MyModal() {
         }}
         style={styles.modal}>
         <View style={styles.mainContainer}>
-          <View style={styles.closeModal}></View>
-
-          <ModalLabel tittle={text.SeleccionaUnaFoto} />
-
-          <TouchableOpacity style={styles.iconsContainer}>
-            <Image source={Photo} style={styles.selectPhotoandCameraIcon} />
-            <Text style={styles.textIcons}>{text.GaleriaDeFotos}</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.iconsContainer}>
-            <Image source={Camera} style={styles.selectPhotoandCameraIcon} />
-            <Text style={styles.textIcons}>{text.Camara}</Text>
-          </TouchableOpacity>
+          <View style={styles.closeModal}></View> 
+          <ImagePicker/>
         </View>
       </Modal>
     </View>

@@ -3,6 +3,7 @@ import {View, Text, StatusBar} from 'react-native';
 import {colors, text} from '../utils/Constants';
 import {styles} from '../styles/HomeStyles';
 import MyModal from '../components/MyModal';
+import ImagePicker from '../components/ImagePicker';
 
 const Home = () => {
   return (
