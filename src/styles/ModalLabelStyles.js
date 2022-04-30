@@ -6,8 +6,7 @@ export const styles = StyleSheet.create({
     fontSize: body.large,
     fontWeight: weight.bold,
     color: colors.grey500,
-    marginTop: 37,
-    marginBottom: 33,
+    marginTop: 37, 
     alignSelf: 'center',
   },
 });

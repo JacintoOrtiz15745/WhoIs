@@ -42,19 +42,4 @@ export const styles = StyleSheet.create({
         alignSelf: 'center', 
         marginTop: 12,
     }, 
-    iconsContainer: {
-        flexDirection: 'row',
-        marginHorizontal: 27, 
-    },
-    textIcons: {
-        marginLeft: 20,
-        marginBottom: 26,
-        fontSize: body.large,
-        fontWeight: weight.medium,
-        color: colors.grey900,
-    }, 
-    selectPhotoandCameraIcon: {
-        width: 24, 
-        height: 24
-    }
 })
