@@ -6,7 +6,7 @@ import { colors } from '../utils/Constants';
 const TYPES = ['primary', 'success', 'warning', 'error', 'black'];
 
 const ButtonLoader = props => {
-  const { tittle, type } = props;
+  const { tittle, type, onPress } = props;
 
   const btnType = TYPES.includes(type) ? type : 'primary';
 
@@ -29,7 +29,7 @@ const ButtonLoader = props => {
   };
 
   return (
-    <TouchableOpacity style={btnStyle}>
+    <TouchableOpacity style={btnStyle} onPress={onPress}>
       <Text style={styles.titleButton}>{tittle}</Text>
     </TouchableOpacity>
   );

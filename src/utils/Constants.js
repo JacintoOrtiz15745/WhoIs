@@ -22,7 +22,7 @@ export const colors = {
 export const heading = {
     h1: 48,
     h2: 40,
-    h3: 32, 
+    h3: 32,
     h4: 24,
     h5: 20,
     h6: 18,
@@ -64,4 +64,6 @@ export const text = {
     Popularidad: 'Popularidad',
     Peliculas: 'Peliculas',
     DarkContent: 'dark-content',
+    apiNomada: 'https://whois.nomada.cloud/upload',
+    nomadaKey: 'MDU5ZGIzNzktYTIyMy00M2FkLWIxMGYtMzZkYTM2NzkwN2Vl',
 }
