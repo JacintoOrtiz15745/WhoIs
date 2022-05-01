@@ -1,7 +1,7 @@
-import { StyleSheet } from 'react-native'
-import { colors, body, weight } from '../utils/Constants'
+import { StyleSheet } from 'react-native';
+import { colors, body, weight } from '../utils/Constants';
 
-export const styles = StyleSheet.create({ 
+export const styles = StyleSheet.create({
     galleryIconContainer: {
         flexDirection: 'row',
         marginHorizontal: 27,
@@ -9,11 +9,18 @@ export const styles = StyleSheet.create({
     },
     cameraIconContainer: {
         flexDirection: 'row',
-        marginHorizontal: 27, 
+        marginHorizontal: 27,
     },
-    textIcons: {
+    textPhotoIcons: {
         marginLeft: 20,
         marginBottom: 26,
+        fontSize: body.large,
+        fontWeight: weight.medium,
+        color: colors.grey900,
+    },
+    textCameraIcons: {
+        marginLeft: 20,
+        marginBottom: 56,
         fontSize: body.large,
         fontWeight: weight.medium,
         color: colors.grey900,
@@ -23,8 +30,8 @@ export const styles = StyleSheet.create({
         height: 24
     },
     imageContainer: {
-        width: 150, 
-        height: 150, 
+        width: 150,
+        height: 150,
         borderRadius: 36,
         alignSelf: 'center',
         marginVertical: 20,

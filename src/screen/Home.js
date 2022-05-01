@@ -1,9 +1,8 @@
 import React from 'react';
-import {View, Text, StatusBar} from 'react-native';
-import {colors, text} from '../utils/Constants';
-import {styles} from '../styles/HomeStyles';
-import MyModal from '../components/MyModal';
-import ImagePicker from '../components/ImagePicker';
+import { View, Text, StatusBar } from 'react-native';
+import { colors, text } from '../utils/Constants';
+import { styles } from '../styles/HomeStyles';
+import MyModal from '../components/MyModal'; 
 
 const Home = () => {
   return (
@@ -14,9 +13,7 @@ const Home = () => {
         <Text style={styles.HeyDev}>{text.HeyDev}</Text>
         <Text style={styles.subtitle}>{text.KeepUpTheGoodWork}</Text>
         <Text style={styles.whoIs}>{text.QuienEs}</Text>
-        <View style={styles.selectImageContainer}>
-          <MyModal />
-        </View>
+        <MyModal />
       </View>
     </View>
   );
