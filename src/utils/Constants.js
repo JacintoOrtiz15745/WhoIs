@@ -70,7 +70,7 @@ export const text = {
     alertTitle: 'Ops! 😅',
     alertText: 'Solo se aceptan archivos jpg o png',
     alertClose: 'Aceptar',
-    apiTheMovieDB: 'https://api.themoviedb.org/3/search/person?api_key=30db1237b9167f8afaf9e065b90d16b8&language=en-US&query=', 
+    apiTheMovieDB: 'https://api.themoviedb.org/3/search/person?api_key=30db1237b9167f8afaf9e065b90d16b8&language=en-US&query=',
     apiTheMovieDBSecondPart: '&page=1&include_adult=false',
     apiTheMovieDBActorImage: 'https://image.tmdb.org/t/p/original',
     Hombre: 'Hombre',

@@ -31,8 +31,8 @@ const Details = ({ route }) => {
   }, []);
 
   const imagePath = dataResponse.profile_path
-  const leftArrowImage = require('../assets/images/leftArrow.png')
- console.log(flatListData)
+  const leftArrowImage = require('../assets/images/arrowLeft.png')
+  console.log(flatListData)
 
   return (
     <View style={styles.mainContainer}>
@@ -64,17 +64,17 @@ const Details = ({ route }) => {
         </View>
         <ImageBackground />
       </View>
-      
+
       <Text style={styles.movieTitle}>{text.Peliculas}</Text>
 
       <FlatList
         data={flatListData}
         keyExtractor={item => item.id}
         showsVerticalScrollIndicator={false}
-        renderItem={({item}) => (
-          <RenderData 
-            title={item.original_title} 
-            overview={item.overview} 
+        renderItem={({ item }) => (
+          <RenderData
+            title={item.original_title}
+            overview={item.overview}
             poster_path={item.poster_path}
             vote_average={item.vote_average}
           />

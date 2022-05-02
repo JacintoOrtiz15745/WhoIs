@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     tagText: {
         fontSize: body.medium,
         fontWeight: weight.bold,
-        color: colors.grey900, 
+        color: colors.grey900,
         paddingHorizontal: 10,
         paddingVertical: 2,
     }

@@ -6,46 +6,46 @@ export const styles = StyleSheet.create({
         flex: 1
     },
     imageContainer: {
-        width: '100%', 
+        width: '100%',
         height: '50%',
     },
     imageBackground: {
-        width: '100%', 
-        height: '100%', 
+        width: '100%',
+        height: '100%',
         resizeMode: 'cover',
     },
     infoMainContainer: {
-        flex: 1, 
+        flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        width: '100%', 
+        width: '100%',
         height: '100%',
-        position: 'absolute', 
+        position: 'absolute',
         paddingHorizontal: 16,
         paddingBottom: 16,
     },
-    leftArrowContainer: { 
+    leftArrowContainer: {
         position: 'absolute',
         marginTop: 16,
         marginLeft: 16,
     },
     leftArrow: {
-        width: 55, 
+        width: 55,
         height: 52,
     },
-    leftContainer: {   
+    leftContainer: {
         alignSelf: 'center',
         alignSelf: 'flex-end',
     },
-    rightContainer: { 
+    rightContainer: {
         alignSelf: 'center',
         alignSelf: 'flex-end',
     },
     actorName: {
         fontSize: heading.h3,
-        fontWeight: weight.bold, 
-        color: colors.grey50, 
-    }, 
+        fontWeight: weight.bold,
+        color: colors.grey50,
+    },
     tagDirection: {
         alignSelf: 'flex-start',
     },
@@ -60,7 +60,7 @@ export const styles = StyleSheet.create({
         fontWeight: weight.bold,
         color: colors.grey50,
         alignSelf: 'flex-end',
-    }, 
+    },
     movieTitle: {
         fontSize: heading.h3,
         fontWeight: weight.bold,

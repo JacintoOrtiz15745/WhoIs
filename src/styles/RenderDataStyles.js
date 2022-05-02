@@ -3,35 +3,35 @@ import { body, colors, heading, weight } from '../utils/Constants';
 
 export const styles = StyleSheet.create({
     mainContainer: {
-        flexDirection: 'row', 
+        flexDirection: 'row',
         justifyContent: 'space-between',
         backgroundColor: colors.grey100,
         borderRadius: 16,
-        marginBottom: 16, 
-        marginHorizontal: 16, 
+        marginBottom: 16,
+        marginHorizontal: 16,
         paddingHorizontal: 10
     },
-    infoContainer: { 
+    infoContainer: {
         marginTop: 10,
         marginBottom: 22,
-        width: '75%', 
+        width: '75%',
     },
     textTitle: {
         fontSize: heading.h4,
         fontWeight: weight.bold,
         color: colors.black,
-        marginBottom: 10,  
-    }, 
+        marginBottom: 10,
+    },
     textInfo: {
         fontSize: body.large,
         fontWeight: weight.bold,
         color: colors.black
     },
-    imageAndVoteContainer: { 
-        marginVertical: 10,  
+    imageAndVoteContainer: {
+        marginVertical: 10,
     },
     imageContainer: {
-        width: 77, 
+        width: 77,
         height: 129,
         borderRadius: 16,
     },

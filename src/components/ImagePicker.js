@@ -11,11 +11,11 @@ import Button from './Button';
 
 
 const ImagePicker = () => {
-    
-    const navigation = useNavigation(); 
+
+    const navigation = useNavigation();
     const Photo = require('../assets/images/photo.png');
     const Camera = require('../assets/images/camera.png');
-    const netInfo = useNetInfo(); 
+    const netInfo = useNetInfo();
 
     const [pathImage, setPathImage] = useState('')
     const [whoIs, setWhoIs] = useState('')
@@ -31,19 +31,19 @@ const ImagePicker = () => {
             selectionLimit: 1,
         }
     }
-    
+
     const openGallery = async () => {
         const images = await launchImageLibrary(options);
 
         if (images.didCancel !== true) {
 
-            if(images.assets[0].type == 'image/jpeg' || images.assets[0].type == 'image/JPEG' || images.assets[0].type == 'image/png' || images.assets[0].type == 'image/PNG'){
-                
+            if (images.assets[0].type == 'image/jpeg' || images.assets[0].type == 'image/JPEG' || images.assets[0].type == 'image/png' || images.assets[0].type == 'image/PNG') {
+
                 const path = images.assets[0].uri
-                
+
                 setPathImage(path)
-            
-                if(netInfo.isConnected === true){
+
+                if (netInfo.isConnected === true) {
                     const formData = new FormData();
                     formData.append('file', {
                         uri: images.assets[0].uri,
@@ -52,28 +52,25 @@ const ImagePicker = () => {
                     })
 
                     const response = await fetch(text.apiNomada, {
-                            method: 'post',
-                            headers: {
-                                'Content-Type': 'multipart/form-data',
-                                'Nomada': `${text.nomadaKey}`
-                            }, 
-                            body: formData,
-                        })
+                        method: 'post',
+                        headers: {
+                            'Content-Type': 'multipart/form-data',
+                            'Nomada': `${text.nomadaKey}`
+                        },
+                        body: formData,
+                    })
                         .catch(setErrorManagement(true))
-                    
+
                     const responseJSON = await response.json();
-                    setWhoIs(responseJSON); 
+                    setWhoIs(responseJSON);
                 }
             } else {
                 Alert.alert(text.alertTitle, text.alertText, [{
                     text: text.alertClose
                 }])
-            }     
+            }
         }
     }
-    
-    const actor = whoIs.actorName
-    console.log(actor)
 
     return (
         <View>
@@ -93,41 +90,41 @@ const ImagePicker = () => {
                 </>
                 :
                 <View style={{ marginBottom: 19, }}>
-                    { 
-                        netInfo.isConnected === true || errorManagement === true ? 
-                            whoIs === '' 
-                            ? <ModalLabel title={text.Subiendo} /> 
-                            : whoIs.error !== '' 
-                            ? <ModalLabel title={text.EsUnFamoso} /> 
-                            : whoIs.actorName !==''
-                            ? <ModalLabel title={text.Listo} />
-                            : <></>
-                        :
+                    {
+                        netInfo.isConnected === true || errorManagement === true ?
+                            whoIs === ''
+                                ? <ModalLabel title={text.Subiendo} />
+                                : whoIs.error !== ''
+                                    ? <ModalLabel title={text.EsUnFamoso} />
+                                    : whoIs.actorName !== ''
+                                        ? <ModalLabel title={text.Listo} />
+                                        : <></>
+                            :
                             <ModalLabel title={text.HuboUnError} />
-                        
+
                     }
 
                     <Image
                         style={styles.imageContainer}
                         source={{ uri: pathImage }}
                     />
-                    
+
                     {
                         netInfo.isConnected === true || errorManagement === true ?
-                            whoIs === '' 
-                            ? <ButtonLoader type={'primary'} title={text.Buscando} /> 
-                            : whoIs.error !== '' 
-                            ? 
-                                <>
-                                    <ButtonLoader type={'warning'} title={text.NoSeEncontro} />  
-                                    <Button title={text.Cerrar}/>
-                                </>
-                            
-                            : whoIs.actorName !== ''
-                            ? <ButtonLoader type={'success'} title={whoIs.actorName} onPress={() => navigation.navigate('Details',{ actorName: whoIs.actorName })} />
-                            : <></>
-                            
-                        :
+                            whoIs === ''
+                                ? <ButtonLoader type={'primary'} title={text.Buscando} />
+                                : whoIs.error !== ''
+                                    ?
+                                    <>
+                                        <ButtonLoader type={'warning'} title={text.NoSeEncontro} />
+                                        <Button title={text.Cerrar} />
+                                    </>
+
+                                    : whoIs.actorName !== ''
+                                        ? <ButtonLoader type={'success'} title={whoIs.actorName} onPress={() => navigation.navigate('Details', { actorName: whoIs.actorName })} />
+                                        : <></>
+
+                            :
                             <ButtonLoader type={'error'} title={text.Error} />
                     }
                 </View>

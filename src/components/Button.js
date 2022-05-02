@@ -4,7 +4,7 @@ import { styles } from '../styles/ButtonStyles';
 
 const Button = (props) => {
 
-  const {title} = props
+  const { title } = props
 
   return (
     <TouchableOpacity style={styles.mainContainer}>

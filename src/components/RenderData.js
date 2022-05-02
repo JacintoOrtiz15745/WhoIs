@@ -16,7 +16,7 @@ const RenderData = (props) => {
             <View style={styles.imageAndVoteContainer}>
                 <Image style={styles.imageContainer} source={{ uri: text.apiTheMovieDBActorImage + poster_path }} />
                 <Text style={styles.voteAverage}>{vote_average}{text.Star}</Text>
-            </View> 
+            </View>
         </View>
     )
 }

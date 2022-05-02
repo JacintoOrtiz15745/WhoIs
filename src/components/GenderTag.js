@@ -4,7 +4,7 @@ import { styles } from '../styles/GenderTagStyles';
 
 const GenderTag = (props) => {
 
-    const {title} = props;
+    const { title } = props;
 
     return (
         <View style={styles.mainContainer}>
