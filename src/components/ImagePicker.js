@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TouchableOpacity, Image, Alert } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
 import { useNetInfo } from "@react-native-community/netinfo";
 import { useNavigation } from '@react-navigation/native';
@@ -11,10 +11,11 @@ import Button from './Button';
 
 
 const ImagePicker = () => {
-    const netInfo = useNetInfo(); 
+    
     const navigation = useNavigation(); 
     const Photo = require('../assets/images/photo.png');
     const Camera = require('../assets/images/camera.png');
+    const netInfo = useNetInfo(); 
 
     const [pathImage, setPathImage] = useState('')
     const [whoIs, setWhoIs] = useState('')
@@ -36,39 +37,49 @@ const ImagePicker = () => {
 
         if (images.didCancel !== true) {
 
-            const path = images.assets[0].uri
-            setPathImage(path)
-            
-            if(netInfo.isConnected === true){
-                const formData = new FormData();
-                formData.append('file', {
-                    uri: images.assets[0].uri,
-                    type: images.assets[0].type,
-                    name: images.assets[0].fileName,
-                })
-
-                const response = await fetch(text.apiNomada, {
-                        method: 'post',
-                        headers: {
-                            'Content-Type': 'multipart/form-data',
-                            'Nomada': `${text.nomadaKey}`
-                        }, 
-                        body: formData,
-                    })
-                    .catch(setErrorManagement(true))
+            if(images.assets[0].type == 'image/jpeg' || images.assets[0].type == 'image/JPEG' || images.assets[0].type == 'image/png' || images.assets[0].type == 'image/PNG'){
                 
-                const responseJSON = await response.json();
-                setWhoIs(responseJSON); 
-            }
+                const path = images.assets[0].uri
+                
+                setPathImage(path)
             
+                if(netInfo.isConnected === true){
+                    const formData = new FormData();
+                    formData.append('file', {
+                        uri: images.assets[0].uri,
+                        type: images.assets[0].type,
+                        name: images.assets[0].fileName,
+                    })
+
+                    const response = await fetch(text.apiNomada, {
+                            method: 'post',
+                            headers: {
+                                'Content-Type': 'multipart/form-data',
+                                'Nomada': `${text.nomadaKey}`
+                            }, 
+                            body: formData,
+                        })
+                        .catch(setErrorManagement(true))
+                    
+                    const responseJSON = await response.json();
+                    setWhoIs(responseJSON); 
+                }
+            } else {
+                Alert.alert(text.alertTitle, text.alertText, [{
+                    text: text.alertClose
+                }])
+            }     
         }
     }
- 
+    
+    const actor = whoIs.actorName
+    console.log(actor)
+
     return (
         <View>
             {pathImage === '' ?
                 <>
-                    <ModalLabel tittle={text.SeleccionaUnaFoto} />
+                    <ModalLabel title={text.SeleccionaUnaFoto} />
 
                     <TouchableOpacity style={styles.galleryIconContainer} onPress={openGallery}>
                         <Image source={Photo} style={styles.selectPhotoandCameraIcon} />
@@ -85,14 +96,14 @@ const ImagePicker = () => {
                     { 
                         netInfo.isConnected === true || errorManagement === true ? 
                             whoIs === '' 
-                            ? <ModalLabel tittle={text.Subiendo} /> 
+                            ? <ModalLabel title={text.Subiendo} /> 
                             : whoIs.error !== '' 
-                            ? <ModalLabel tittle={text.EsUnFamoso} /> 
+                            ? <ModalLabel title={text.EsUnFamoso} /> 
                             : whoIs.actorName !==''
-                            ? <ModalLabel tittle={text.Listo} />
+                            ? <ModalLabel title={text.Listo} />
                             : <></>
                         :
-                            <ModalLabel tittle={text.HuboUnError} />
+                            <ModalLabel title={text.HuboUnError} />
                         
                     }
 
@@ -104,20 +115,20 @@ const ImagePicker = () => {
                     {
                         netInfo.isConnected === true || errorManagement === true ?
                             whoIs === '' 
-                            ? <ButtonLoader type={'primary'} tittle={text.Buscando} /> 
+                            ? <ButtonLoader type={'primary'} title={text.Buscando} /> 
                             : whoIs.error !== '' 
                             ? 
                                 <>
-                                    <ButtonLoader type={'warning'} tittle={text.NoSeEncontro} />  
-                                    <Button tittle={text.Cerrar}/>
+                                    <ButtonLoader type={'warning'} title={text.NoSeEncontro} />  
+                                    <Button title={text.Cerrar}/>
                                 </>
                             
                             : whoIs.actorName !== ''
-                            ? <ButtonLoader type={'success'} tittle={whoIs.actorName} onPress={() => navigation.navigate('Details')} />
+                            ? <ButtonLoader type={'success'} title={whoIs.actorName} onPress={() => navigation.navigate('Details',{ actorName: whoIs.actorName })} />
                             : <></>
                             
                         :
-                            <ButtonLoader type={'error'} tittle={text.Error} />
+                            <ButtonLoader type={'error'} title={text.Error} />
                     }
                 </View>
             }

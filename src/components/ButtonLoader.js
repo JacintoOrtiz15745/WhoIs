@@ -1,15 +1,15 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 import { styles } from '../styles/ButtonLoaderStyles';
 import { colors } from '../utils/Constants';
 
 const TYPES = ['primary', 'success', 'warning', 'error', 'black'];
 
 const ButtonLoader = props => {
-  const { tittle, type, onPress } = props;
+  const { title, type, onPress } = props;
 
   const btnType = TYPES.includes(type) ? type : 'primary';
-
+  
   const btnStyle = {
     borderRadius: 16,
     alignSelf: 'center',
@@ -30,7 +30,7 @@ const ButtonLoader = props => {
 
   return (
     <TouchableOpacity style={btnStyle} onPress={onPress}>
-      <Text style={styles.titleButton}>{tittle}</Text>
+      <Text style={styles.titleButton}>{title}</Text>
     </TouchableOpacity>
   );
 };
