@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Image, Alert } from 'react-native';
-import { launchImageLibrary } from 'react-native-image-picker';
+import { launchImageLibrary, launchCamera } from 'react-native-image-picker';
 import { useNetInfo } from "@react-native-community/netinfo";
 import { useNavigation } from '@react-navigation/native';
 import { text } from '../utils/Constants';
@@ -72,6 +72,39 @@ const ImagePicker = () => {
         }
     }
 
+    const openCamera = async () => {
+        const images = await launchCamera(options);
+
+        if (images.didCancel !== true) {
+
+            const path = images.assets[0].uri
+
+            setPathImage(path)
+
+            if (netInfo.isConnected === true) {
+                const formData = new FormData();
+                formData.append('file', {
+                    uri: images.assets[0].uri,
+                    type: images.assets[0].type,
+                    name: images.assets[0].fileName,
+                })
+
+                const response = await fetch(text.apiNomada, {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                        'Nomada': `${text.nomadaKey}`
+                    },
+                    body: formData,
+                })
+                    .catch(setErrorManagement(true))
+
+                const responseJSON = await response.json();
+                setWhoIs(responseJSON);
+            }
+        }
+    }
+
     return (
         <View>
             {pathImage === '' ?
@@ -83,7 +116,7 @@ const ImagePicker = () => {
                         <Text style={styles.textPhotoIcons}>{text.GaleriaDeFotos}</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.cameraIconContainer} onPress={openGallery}>
+                    <TouchableOpacity style={styles.cameraIconContainer} onPress={openCamera}>
                         <Image source={Camera} style={styles.selectPhotoandCameraIcon} />
                         <Text style={styles.textCameraIcons}>{text.Camara}</Text>
                     </TouchableOpacity>
