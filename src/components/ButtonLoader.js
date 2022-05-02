@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 import { styles } from '../styles/ButtonLoaderStyles';
 import { colors } from '../utils/Constants';
 
 const TYPES = ['primary', 'success', 'warning', 'error', 'black'];
 
 const ButtonLoader = props => {
-  const { tittle, type, onPress } = props;
+  const { title, type, onPress } = props;
 
   const btnType = TYPES.includes(type) ? type : 'primary';
 
@@ -18,19 +18,19 @@ const ButtonLoader = props => {
     marginBottom: 20,
     backgroundColor:
       btnType === 'primary'
-      ? colors.primary
-      : btnType === 'success'
-      ? colors.success
-      : btnType === 'warning'
-      ? colors.warning
-      : btnType === 'error'
-      ? colors.error
-      : colors.primary
+        ? colors.primary
+        : btnType === 'success'
+          ? colors.success
+          : btnType === 'warning'
+            ? colors.warning
+            : btnType === 'error'
+              ? colors.error
+              : colors.primary
   };
 
   return (
     <TouchableOpacity style={btnStyle} onPress={onPress}>
-      <Text style={styles.titleButton}>{tittle}</Text>
+      <Text style={styles.titleButton}>{title}</Text>
     </TouchableOpacity>
   );
 };
