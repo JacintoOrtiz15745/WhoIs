@@ -14,6 +14,10 @@ function MyModal() {
     setModalVisible(!isModalVisible);
   };
 
+  const pullData = (isOpen) => { 
+      setModalVisible(isOpen);
+  }
+  
   return (
     <View style={styles.selectImageContainer}>
       <TouchableOpacity style={styles.selectImage} onPress={toggleModal}>
@@ -31,7 +35,7 @@ function MyModal() {
         style={styles.modal}>
         <View style={styles.mainContainer}>
           <View style={styles.closeModal}></View>
-          <ImagePicker />
+          <ImagePicker isOpen={pullData}/>
         </View>
       </Modal>
     </View>
