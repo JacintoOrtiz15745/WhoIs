@@ -3,11 +3,11 @@ import { colors, heading, body, weight } from '../utils/Constants';
 
 export const styles = StyleSheet.create({
     mainContainer: {
-        flex: 1
-    },
+        flex: 1,
+    }, 
     imageContainer: {
         width: '100%',
-        height: '50%',
+        height: 375,
     },
     imageBackground: {
         width: '100%',
@@ -25,6 +25,7 @@ export const styles = StyleSheet.create({
         paddingBottom: 16,
     },
     leftArrowContainer: {
+        zIndex: 1,
         position: 'absolute',
         marginTop: 16,
         marginLeft: 16,
