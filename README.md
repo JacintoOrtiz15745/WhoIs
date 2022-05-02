@@ -51,7 +51,7 @@ To get the images of the Actor and the movies posters
  <table>
   <tr>
     <td>Take a photo</td>
-     <td>Photo taken dont't found</td>
+     <td>Photo taken don't found</td>
      <td>Network or server error</td>
   </tr>
   <tr>
