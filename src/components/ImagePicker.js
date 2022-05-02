@@ -10,7 +10,7 @@ import ButtonLoader from './ButtonLoader';
 import Button from './Button';
 
 
-const ImagePicker = () => {
+const ImagePicker = (props) => {
 
     const navigation = useNavigation();
     const Photo = require('../assets/images/photo.png');
@@ -104,6 +104,10 @@ const ImagePicker = () => {
             }
         }
     }
+    
+    const isOpenFalse = () => {
+        return props.isOpen(false)
+    }
 
     return (
         <View>
@@ -150,7 +154,7 @@ const ImagePicker = () => {
                                     ?
                                     <>
                                         <ButtonLoader type={'warning'} title={text.NoSeEncontro} />
-                                        <Button title={text.Cerrar} />
+                                        <Button title={text.Cerrar} onPress={isOpenFalse} />
                                     </>
 
                                     : whoIs.actorName !== ''
