@@ -19,4 +19,54 @@ To get the images of the Actor and the movies posters
 
 3.- [The Movie DB IMAGES API](https://developers.themoviedb.org/3/getting-started/images)
 
-# Preview
+# Preview Who Is App
+
+
+<table>
+  <tr>
+    <td>First Screen Page</td>
+     <td>Select Image from gallery</td>
+     <td>Selecting Image</td>
+  </tr>
+  <tr>
+    <td><img src="src/assets/screenshots/1.png" width=360 ></td> 
+    <td><img src="src/assets/screenshots/2.png" width=360></td> 
+    <td><img src="src/assets/screenshots/3.png" width=360></td>  
+  </tr>
+ </table>
+ 
+ <table>
+  <tr>
+    <td>Image loaded and actor found</td>
+     <td>Details of Actor</td>
+     <td>Actor not found</td>
+  </tr>
+  <tr>
+    <td><img src="src/assets/screenshots/4.png" width=360 ></td> 
+    <td><img src="src/assets/screenshots/5.png" width=360></td> 
+    <td><img src="src/assets/screenshots/6.png" width=360></td>  
+  </tr>
+ </table>
+ 
+ <table>
+  <tr>
+    <td>Take a photo</td>
+     <td>Photo taken dont't found</td>
+     <td>Network or server error</td>
+  </tr>
+  <tr>
+    <td><img src="src/assets/screenshots/7.png" width=360 ></td> 
+    <td><img src="src/assets/screenshots/8.png" width=360></td> 
+    <td><img src="src/assets/screenshots/9.png" width=360></td>  
+  </tr>
+ </table>
+ 
+ <table>
+  <tr>
+    <td>PNG, pnj, JPG, or jpg are not accepted</td> 
+  </tr>
+  <tr>
+    <td><img src="src/assets/screenshots/10.png" width=360 ></td>  
+ </table>
+ 
+ 
