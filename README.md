@@ -24,7 +24,7 @@ To get the images of the Actor and the movies posters
 
 <table>
   <tr>
-    <td>First Screen Page</td>
+    <td>Home screen</td>
      <td>Select Image from gallery</td>
      <td>Selecting Image</td>
   </tr>
