@@ -27,6 +27,11 @@ export const styles = StyleSheet.create({
         fontWeight: weight.bold,
         color: colors.black
     },
+      textInfo: {
+        fontSize: body.large,
+        fontWeight: weight.bold,
+        color: colors.black
+    },
     imageAndVoteContainer: {
         marginVertical: 10,
     },

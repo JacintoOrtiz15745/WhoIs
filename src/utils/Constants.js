@@ -75,4 +75,6 @@ export const text = {
     apiTheMovieDBActorImage: 'https://image.tmdb.org/t/p/original',
     Hombre: 'Hombre',
     Mujer: 'Mujer',
+    WithoutInfo: 'Without information',
+    WithoutMovieInfo: 'Sabemos quien es pero no tenemos informacion de sus peliculas 😥',
 }
