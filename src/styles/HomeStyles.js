@@ -27,27 +27,4 @@ export const styles = StyleSheet.create({
         color: colors.grey900,
         marginTop: 32,
     },
-    selectImageContainer: {                 
-        marginTop: 10,
-        borderColor: colors.primary,
-        borderWidth: 2,
-        borderStyle: 'dashed',
-    },
-    selectImage: {
-        width: '100%',
-        height: 137,
-        backgroundColor: colors.background,
-        alignItems: 'center', 
-        justifyContent: 'center',
-    }, 
-    Icon: {
-        width: 44, 
-        height: 41,
-    },
-    textIcon: {
-        fontSize: body.medium,
-        fontWeight: weight.bold,
-        color: colors.primary,
-        marginTop: 14,
-    },
 })

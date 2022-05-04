@@ -11,7 +11,14 @@ const RenderData = (props) => {
         <View style={styles.mainContainer}>
             <View style={styles.infoContainer}>
                 <Text style={styles.textTitle}>{title}</Text>
-                <Text style={styles.textInfo}>{overview}</Text>
+
+                {
+                    overview ?
+                        <Text style={styles.textInfo}>{overview}</Text>
+                        :
+                        <Text style={styles.textInfo}>{text.WithoutInfo}</Text>
+                }
+
             </View>
             <View style={styles.imageAndVoteContainer}>
                 <Image style={styles.imageContainer} source={{ uri: text.apiTheMovieDBActorImage + poster_path }} />
