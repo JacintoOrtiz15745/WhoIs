@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
         borderColor: colors.primary,
         borderWidth: 2,
         borderStyle: 'dashed',
+        height: 142,
     },
     selectImage: {
         width: '100%',

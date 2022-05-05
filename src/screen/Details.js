@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { View, Text, Image, ImageBackground, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../styles/DetailsStyles';
 import { text } from '../utils/Constants';
 import GenderTag from '../components/GenderTag';
 import RenderData from '../components/RenderData';
+import DetailsLoader from '../components/DetailsLoader';
 
 const Details = ({ route }) => {
 
@@ -23,9 +24,9 @@ const Details = ({ route }) => {
       );
       const data = await response.json();
       const actor = await data.results[0]
-      const dataFlatList = await actor.known_for
+      const dataList = await actor.known_for
       setDataResponse(actor);
-      setMoviesListData(dataFlatList)
+      setMoviesListData(dataList)
     } catch (error) {
       setCatchError(true)
     }
@@ -50,52 +51,56 @@ const Details = ({ route }) => {
           :
           (
             <>
+
               <TouchableOpacity style={styles.leftArrowContainer} onPress={() => navigation.goBack()}>
                 <Image style={styles.leftArrow} source={leftArrowImage} />
               </TouchableOpacity>
 
-              <ScrollView showsVerticalScrollIndicator={false}>
+              <Suspense fallback={<DetailsLoader />}>
 
-                <View style={styles.imageContainer}>
-                  <ImageBackground style={styles.imageBackground} source={{ uri: text.apiTheMovieDBActorImage + imagePath }} />
+                <ScrollView showsVerticalScrollIndicator={false}>
 
+                  <View style={styles.imageContainer}>
+                    <ImageBackground style={styles.imageBackground} source={{ uri: text.apiTheMovieDBActorImage + imagePath }} />
 
-                  <View style={styles.infoMainContainer}>
-                    <View style={styles.leftContainer}>
-                      <Text style={styles.actorName}>{actorName}</Text>
-                      {
-                        dataResponse.gender === 2 ?
-                          <View style={styles.tagDirection}>
-                            <GenderTag title={text.Hombre} />
-                          </View>
-                          :
-                          <View style={styles.tagDirection}>
-                            <GenderTag title={text.Mujer} />
-                          </View>
-                      }
+                    <View style={styles.infoMainContainer}>
+                      <View style={styles.leftContainer}>
+                        <Text style={styles.actorName}>{actorName}</Text>
+                        {
+                          dataResponse.gender === 2 ?
+                            <View style={styles.tagDirection}>
+                              <GenderTag title={text.Hombre} />
+                            </View>
+                            :
+                            <View style={styles.tagDirection}>
+                              <GenderTag title={text.Mujer} />
+                            </View>
+                        }
+                      </View>
+
+                      <View style={styles.rightContainer}>
+                        <Text style={styles.popularityTitle}>{text.Popularidad}</Text>
+                        <Text style={styles.popularityText}>{dataResponse.popularity}{text.Star}</Text>
+                      </View>
                     </View>
-
-                    <View style={styles.rightContainer}>
-                      <Text style={styles.popularityTitle}>{text.Popularidad}</Text>
-                      <Text style={styles.popularityText}>{dataResponse.popularity}{text.Star}</Text>
-                    </View>
+                    <ImageBackground />
                   </View>
-                  <ImageBackground />
-                </View>
 
-                <Text style={styles.movieTitle}>{text.Peliculas}</Text>
+                  <Text style={styles.movieTitle}>{text.Peliculas}</Text>
 
-                {moviesListData.map((item) => {
-                  return <RenderData
-                    key={item.id}
-                    title={item.original_title}
-                    overview={item.overview}
-                    poster_path={item.poster_path}
-                    vote_average={item.vote_average}
-                  />
-                })}
+                  {moviesListData.map((item) => {
+                    return <RenderData
+                      key={item.id}
+                      title={item.original_title}
+                      overview={item.overview}
+                      poster_path={item.poster_path}
+                      vote_average={item.vote_average}
+                    />
+                  })}
 
-              </ScrollView>
+                </ScrollView>
+              </Suspense>
+
             </>
           )
       }

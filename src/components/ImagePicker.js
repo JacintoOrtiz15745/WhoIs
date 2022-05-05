@@ -19,7 +19,7 @@ const ImagePicker = (props) => {
 
     const [pathImage, setPathImage] = useState('')
     const [whoIs, setWhoIs] = useState('')
-    const [errorManagement, setErrorManagement] = useState('')
+    const [catchError, setCatchError] = useState(false) 
 
     const options = {
         title: 'Select Image',
@@ -51,19 +51,21 @@ const ImagePicker = (props) => {
                         name: images.assets[0].fileName,
                     })
 
-                    const response = await fetch(text.apiNomada, {
-                        method: 'post',
-                        headers: {
-                            'Content-Type': 'multipart/form-data',
-                            'Nomada': `${text.nomadaKey}`
-                        },
-                        body: formData,
-                    })
-                        .catch(setErrorManagement(true))
+                    try { const response = await fetch(text.apiNomada, {
+                            method: 'post',
+                            headers: {
+                                'Content-Type': 'multipart/form-data',
+                                'Nomada': `${text.nomadaKey}`
+                            },
+                            body: formData,
+                        })
 
-                    const responseJSON = await response.json();
-                    setWhoIs(responseJSON);
-                }
+                        const responseJSON = await response.json();
+                        setWhoIs(responseJSON);
+                    } catch (error) {
+                        setCatchError(true)
+                    } 
+                } 
             } else {
                 Alert.alert(text.alertTitle, text.alertText, [{
                     text: text.alertClose
@@ -88,23 +90,24 @@ const ImagePicker = (props) => {
                     type: images.assets[0].type,
                     name: images.assets[0].fileName,
                 })
+                try { const response = await fetch(text.apiNomada, {
+                        method: 'post',
+                        headers: {
+                            'Content-Type': 'multipart/form-data',
+                            'Nomada': `${text.nomadaKey}`
+                        },
+                        body: formData,
+                    })
 
-                const response = await fetch(text.apiNomada, {
-                    method: 'post',
-                    headers: {
-                        'Content-Type': 'multipart/form-data',
-                        'Nomada': `${text.nomadaKey}`
-                    },
-                    body: formData,
-                })
-                    .catch(setErrorManagement(true))
-
-                const responseJSON = await response.json();
-                setWhoIs(responseJSON);
+                    const responseJSON = await response.json();
+                    setWhoIs(responseJSON);
+                } catch (error) {
+                    setCatchError(true)
+                }
             }
         }
     }
-    
+
     const isOpenFalse = () => {
         return props.isOpen(false)
     }
@@ -128,7 +131,7 @@ const ImagePicker = (props) => {
                 :
                 <View style={{ marginBottom: 19, }}>
                     {
-                        netInfo.isConnected === true || errorManagement === true ?
+                        !catchError ?
                             whoIs === ''
                                 ? <ModalLabel title={text.Subiendo} />
                                 : whoIs.error !== ''
@@ -147,7 +150,7 @@ const ImagePicker = (props) => {
                     />
 
                     {
-                        netInfo.isConnected === true || errorManagement === true ?
+                        !catchError ?
                             whoIs === ''
                                 ? <ButtonLoader type={'primary'} title={text.Buscando} />
                                 : whoIs.error !== ''
